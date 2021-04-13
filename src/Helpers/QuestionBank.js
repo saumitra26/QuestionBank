@@ -5,14 +5,15 @@ export const Questions=[
       optionB: "3",
       optionC: "5",
       optionD: "6",
-      answer:"optionC"
-    },{
+      answer:"A"
+    }
+    ,{
         prompt:"What is 1+4?",
         optionA: "4",
         optionB: "3",
         optionC: "5",
         optionD: "6",
-        answer:"optionC"
+        answer:"C"
       },
       {
         prompt:"What is 1+5?",
@@ -20,6 +21,6 @@ export const Questions=[
         optionB: "3",
         optionC: "5",
         optionD: "6",
-        answer:"optionD"
+        answer:"D"
       }
 ]

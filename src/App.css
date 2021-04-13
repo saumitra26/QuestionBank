@@ -9,7 +9,7 @@
   align-items: center;
   flex-direction: column;
 }
-.Menu{
+.Menu,.Quiz,.EndScreen{
   width:500px;
   height:500px;
   border-radius: 10px;
@@ -20,7 +20,8 @@
   align-items: center;
 
 }
-.Menu button{
+
+.Menu button, .Quiz button,.EndScreen button{
   width: 300px;
   height:50px;
   margin:5px;
@@ -29,6 +30,17 @@
   font-size: 20px;
   cursor:pointer;
 
+}
+
+.Menu, .Quiz, .EndScreen h1{
+  color:white;
+}
+.options{
+  width: 100%;
+  display:flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
 }
 .App-logo {
   height: 40vmin;
