@@ -1,5 +1,5 @@
 import React from 'react'
-
+import {Link} from 'react-router-dom'
 const Nav = () => {
     return (
         <nav class="navbar navbar-expand-md navbar-dark bg-dark mb-4">
@@ -8,7 +8,7 @@ const Nav = () => {
           <div>
             <ul class="navbar-nav me-auto mb-2 mb-md-0">
               <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="#">English</a>
+                <Link  to="/english" class="nav-link active" aria-current="page" href="#">English</Link>
               </li>
               <li class="nav-item">
                 <a class="nav-link active" aria-current="page" href="#">Bangla</a>

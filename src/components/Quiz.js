@@ -5,11 +5,13 @@ const Quiz = () => {
     const {score,setScore,setGameState}= useContext(QuizContext);
     const [currQuestion, setCurrQuestion]=useState(0);
     const [optionChosen, setOptionChosen]=useState("")
+    const [click, setClick]=useState(false)
     const nextQuestion=()=>{
         if(Questions[currQuestion].answer==optionChosen){
             setScore(score+1);
+           
         }
-   
+        setClick(false)
         setCurrQuestion(currQuestion+1)
     }
     const finishQuiz=()=>{
@@ -22,14 +24,15 @@ const Quiz = () => {
         <div className="Quiz">
             <h1>{Questions[currQuestion].prompt}</h1>
             <div className="options">
-                <button onClick={()=>{setOptionChosen("A")}}>{Questions[currQuestion].optionA}</button>
-                <button onClick={()=>{setOptionChosen("B")}}>{Questions[currQuestion].optionB}</button>
-                <button onClick={()=>{setOptionChosen("C")}}>{Questions[currQuestion].optionC}</button>
-                <button onClick={()=>{setOptionChosen("D")}}>{Questions[currQuestion].optionD}</button>
+                <button onClick={()=>{setOptionChosen("A");setClick(true)}}>A: {Questions[currQuestion].optionA}</button>
+                <button onClick={()=>{setOptionChosen("B");setClick(true)}}>B: {Questions[currQuestion].optionB}</button>
+                <button onClick={()=>{setOptionChosen("C");setClick(true)}}>C: {Questions[currQuestion].optionC}</button>
+                <button onClick={()=>{setOptionChosen("D");setClick(true)}}>D: {Questions[currQuestion].optionD}</button>
+               {click &&  <button>Correct Answer:{Questions[currQuestion].answer}</button>}
             </div>
             {currQuestion==Questions.length-1 ?
             ( <button onClick={finishQuiz}>Finish</button>):
-            <button onClick={nextQuestion}>Next Questions</button>
+            <button className='next' onClick={nextQuestion}>Next Questions</button>
             }
             
 
