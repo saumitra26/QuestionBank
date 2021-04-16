@@ -8,6 +8,7 @@ const Quiz = () => {
     const [colorA, setColorA]=useState("")
     const [colorB, setColorB]=useState("")
     const [colorC, setColorC]=useState("")
+    const [colorD, setColorD]=useState("")
 
     const colorChange=()=>{
         Questions[currQuestion].optionA===Questions[currQuestion].answer? setColorA('correct'):setColorA('wrong')
