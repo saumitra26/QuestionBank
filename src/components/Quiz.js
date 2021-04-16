@@ -5,13 +5,30 @@ const Quiz = () => {
     const {score,setScore,setGameState}= useContext(QuizContext);
     const [currQuestion, setCurrQuestion]=useState(0);
     const [optionChosen, setOptionChosen]=useState("")
-    const [click, setClick]=useState(false)
+    const [colorA, setColorA]=useState("")
+    const [colorB, setColorB]=useState("")
+    const [colorC, setColorC]=useState("")
+
+    const colorChange=()=>{
+        Questions[currQuestion].optionA===Questions[currQuestion].answer? setColorA('correct'):setColorA('wrong')
+        Questions[currQuestion].optionB===Questions[currQuestion].answer? setColorB('correct'):setColorB('wrong')
+
+    }
+    function highlightBackgroundColor(colorA){
+        const mapping ={
+          'none': '',
+          'correct': 'green',
+          'wrong': 'red'
+        };
+        return mapping[colorA];
+      } 
     const nextQuestion=()=>{
-        if(Questions[currQuestion].answer==optionChosen){
+        if(Questions[currQuestion].mnser==optionChosen){
             setScore(score+1);
            
         }
-        setClick(false)
+        setColorA('none')
+        setColorB('none')
         setCurrQuestion(currQuestion+1)
     }
     const finishQuiz=()=>{
@@ -24,11 +41,15 @@ const Quiz = () => {
         <div className="Quiz">
             <h1>{Questions[currQuestion].prompt}</h1>
             <div className="options">
-                <button onClick={()=>{setOptionChosen("A");setClick(true)}}>A: {Questions[currQuestion].optionA}</button>
-                <button onClick={()=>{setOptionChosen("B");setClick(true)}}>B: {Questions[currQuestion].optionB}</button>
-                <button onClick={()=>{setOptionChosen("C");setClick(true)}}>C: {Questions[currQuestion].optionC}</button>
-                <button onClick={()=>{setOptionChosen("D");setClick(true)}}>D: {Questions[currQuestion].optionD}</button>
-               {click &&  <button>Correct Answer:{Questions[currQuestion].answer}</button>}
+                <button style={{backgroundColor:highlightBackgroundColor(colorA)}}
+                onClick={()=>{colorChange();setOptionChosen("A")}}>
+                        A: {Questions[currQuestion].optionA}
+                </button>
+                <button  style={{backgroundColor:highlightBackgroundColor(colorB)}}
+                 onClick={()=>{ colorChange();setOptionChosen("B")}}>B: {Questions[currQuestion].optionB}</button>
+                <button onClick={()=>{setOptionChosen("C")}}>C: {Questions[currQuestion].optionC}</button>
+                <button onClick={()=>{setOptionChosen("D")}}>D: {Questions[currQuestion].optionD}</button>
+
             </div>
             {currQuestion==Questions.length-1 ?
             ( <button onClick={finishQuiz}>Finish</button>):
