@@ -20,7 +20,7 @@ const Quiz = () => {
           'none': '',
           'correct': 'green',
           'wrong': 'red',
-          
+          'red':'bed1'
          
         
         };
