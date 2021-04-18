@@ -20,11 +20,8 @@ const Quiz = () => {
           'none': '',
           'correct': 'green',
           'wrong': 'red',
-          'tie':'blue',
-          'boom':'coom',
-          'fie':'yellow',
-          'ww':'www',
-          'dss':'sss'
+          
+         
         
         };
         return mapping[colorA];
