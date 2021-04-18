@@ -23,7 +23,8 @@ const Quiz = () => {
           'tie':'blue',
           'boom':'coom',
           'fie':'yellow',
-          'ww':'www'
+          'ww':'www',
+          'dss':'sss'
         
         };
         return mapping[colorA];
