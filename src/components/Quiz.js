@@ -19,7 +19,8 @@ const Quiz = () => {
         const mapping ={
           'none': '',
           'correct': 'green',
-          'wrong': 'red'
+          'wrong': 'red',
+          'tie':'blue'
         };
         return mapping[colorA];
       } 
